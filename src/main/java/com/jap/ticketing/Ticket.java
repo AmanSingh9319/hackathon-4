@@ -6,6 +6,8 @@
 package com.jap.ticketing;
 
 
+import java.util.Objects;
+
 public class Ticket {
     private String schedule_no;
     private String route_no;
@@ -112,5 +114,34 @@ public class Ticket {
 
     public void setTravelled_KM(double travelled_KM) {
         this.travelled_KM = travelled_KM;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ticket)) return false;
+        Ticket ticket = (Ticket) o;
+        return ticket_from_stop_id == ticket.ticket_from_stop_id && ticket_from_stop_seq_no == ticket.ticket_from_stop_seq_no && ticket_till_stop_id == ticket.ticket_till_stop_id && ticket_till_stop_seq_no == ticket.ticket_till_stop_seq_no && Double.compare(ticket.total_ticket_amount, total_ticket_amount) == 0 && Double.compare(ticket.travelled_KM, travelled_KM) == 0 && Objects.equals(schedule_no, ticket.schedule_no) && Objects.equals(route_no, ticket.route_no) && Objects.equals(ticket_date, ticket.ticket_date) && Objects.equals(ticket_time, ticket.ticket_time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(schedule_no, route_no, ticket_from_stop_id, ticket_from_stop_seq_no, ticket_till_stop_id, ticket_till_stop_seq_no, ticket_date, ticket_time, total_ticket_amount, travelled_KM);
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "schedule_no='" + schedule_no + '\'' +
+                ", route_no='" + route_no + '\'' +
+                ", ticket_from_stop_id=" + ticket_from_stop_id +
+                ", ticket_from_stop_seq_no=" + ticket_from_stop_seq_no +
+                ", ticket_till_stop_id=" + ticket_till_stop_id +
+                ", ticket_till_stop_seq_no=" + ticket_till_stop_seq_no +
+                ", ticket_date='" + ticket_date + '\'' +
+                ", ticket_time='" + ticket_time + '\'' +
+                ", total_ticket_amount=" + total_ticket_amount +
+                ", travelled_KM=" + travelled_KM +
+                '}';
     }
 }
