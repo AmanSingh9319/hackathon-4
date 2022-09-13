@@ -13,7 +13,6 @@ public class TicketDataImplTest {
     TicketData ticketData;
     String fileName = "src/main/resources/sample.csv";
 
-
     @Before
     public void SetUp() {
         ticketDataImpl = new TicketDataImpl();
@@ -37,6 +36,7 @@ public class TicketDataImplTest {
 
     }
 
+
     @Test
     public void sortDataByDistance() {
         List<TicketData> output = ticketDataImpl.readFile(fileName);
@@ -47,5 +47,6 @@ public class TicketDataImplTest {
     public void CollectionAmount() {
         List<TicketData> output = ticketDataImpl.readFile(fileName);
         assertEquals(10348.0, ticketDataImpl.CollectionAmount(output), 0);
+
     }
 }

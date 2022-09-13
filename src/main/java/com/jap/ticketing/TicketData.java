@@ -20,6 +20,8 @@ public class TicketData {
     private double total_ticket_amount;
     private double travelled_KM;
 
+    // create constructor ......
+
     public TicketData(String schedule_no, String route_no, int ticket_from_stop_id,
                       int ticket_from_stop_seq_no, int ticket_till_stop_id,
                       int ticket_till_stop_seq_no, String ticket_date, String ticket_time,
@@ -35,6 +37,8 @@ public class TicketData {
         this.total_ticket_amount = total_ticket_amount;
         this.travelled_KM = travelled_KM;
     }
+
+    // create the get and set method for all private attribute.....
 
     public String getSchedule_no() {
         return schedule_no;
@@ -116,6 +120,8 @@ public class TicketData {
         this.travelled_KM = travelled_KM;
     }
 
+    // create equals and hashCode method...
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,6 +135,8 @@ public class TicketData {
         return Objects.hash(schedule_no, route_no, ticket_from_stop_id, ticket_from_stop_seq_no, ticket_till_stop_id, ticket_till_stop_seq_no, ticket_date, ticket_time, total_ticket_amount, travelled_KM);
     }
 
+
+    // create toString method....
     @Override
     public String toString() {
         return "Ticket{" +

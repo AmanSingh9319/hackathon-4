@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 // create a ticketDataImpl class.......
 
 public class TicketDataImpl {
@@ -31,6 +32,8 @@ public class TicketDataImpl {
         for (TicketData ticket : list) {
             System.out.println(ticket);
         }
+        // we print the distance after sortDistance..
+
         System.out.println("-------------------------------------------");
         System.out.println(" After sorting");
         System.out.println("--------------------------------------------");
@@ -38,17 +41,24 @@ public class TicketDataImpl {
         for (TicketData ticket : list1) {
             System.out.println(ticket);
         }
+        // we print the all Collectionamount ...
+
         System.out.println("----------------------------------------------------------");
         System.out.println("collection amount = " + ticketData.CollectionAmount(list));
         System.out.println("-----------------------------------------------------------");
     }
 
+    // we read the CSV file and store the all value in a ArrayList obj one by one
     public List<TicketData> readFile(String filename) {
         List<TicketData> ticktes = new ArrayList<>();
+
+        // we create try and catch block for Handling the Exceptions..
         try {
             FileReader fileReader = new FileReader(filename);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = bufferedReader.readLine();
+
+            // we used while loop read all value
             while ((line = bufferedReader.readLine()) != null) {
                 String[] datalist = line.split(",");
                 String schedule_no = datalist[0];
@@ -80,6 +90,7 @@ public class TicketDataImpl {
         return ticktes;
     }
 
+    // sort the distance..
     public List<TicketData> sortDataByDistance(List<TicketData> tickets) {
         tickets.sort((o1, o2) -> {
             if (o1.getTravelled_KM() == o2.getTravelled_KM()) {
@@ -96,7 +107,7 @@ public class TicketDataImpl {
         return tickets;
     }
 
-
+    // collection amount
     public double CollectionAmount(List<TicketData> ticketData) {
         CollectionAmountCalculate collectionAmountCalculate = ticketData1 -> {
             int sum = 0;
@@ -108,7 +119,7 @@ public class TicketDataImpl {
 
             return sum;
         };
-
+// return all collection amount value...
         return collectionAmountCalculate.collectionAmount(ticketData);
     }
 
