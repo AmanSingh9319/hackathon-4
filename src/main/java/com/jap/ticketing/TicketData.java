@@ -8,7 +8,7 @@ package com.jap.ticketing;
 
 import java.util.Objects;
 
-public class Ticket {
+public class TicketData {
     private String schedule_no;
     private String route_no;
     private int ticket_from_stop_id;
@@ -20,10 +20,10 @@ public class Ticket {
     private double total_ticket_amount;
     private double travelled_KM;
 
-    public Ticket(String schedule_no, String route_no, int ticket_from_stop_id,
-                  int ticket_from_stop_seq_no, int ticket_till_stop_id,
-                  int ticket_till_stop_seq_no, String ticket_date, String ticket_time,
-                  double total_ticket_amount, double travelled_KM) {
+    public TicketData(String schedule_no, String route_no, int ticket_from_stop_id,
+                      int ticket_from_stop_seq_no, int ticket_till_stop_id,
+                      int ticket_till_stop_seq_no, String ticket_date, String ticket_time,
+                      double total_ticket_amount, double travelled_KM) {
         this.schedule_no = schedule_no;
         this.route_no = route_no;
         this.ticket_from_stop_id = ticket_from_stop_id;
@@ -119,9 +119,9 @@ public class Ticket {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Ticket)) return false;
-        Ticket ticket = (Ticket) o;
-        return ticket_from_stop_id == ticket.ticket_from_stop_id && ticket_from_stop_seq_no == ticket.ticket_from_stop_seq_no && ticket_till_stop_id == ticket.ticket_till_stop_id && ticket_till_stop_seq_no == ticket.ticket_till_stop_seq_no && Double.compare(ticket.total_ticket_amount, total_ticket_amount) == 0 && Double.compare(ticket.travelled_KM, travelled_KM) == 0 && Objects.equals(schedule_no, ticket.schedule_no) && Objects.equals(route_no, ticket.route_no) && Objects.equals(ticket_date, ticket.ticket_date) && Objects.equals(ticket_time, ticket.ticket_time);
+        if (!(o instanceof TicketData)) return false;
+        TicketData ticketData = (TicketData) o;
+        return ticket_from_stop_id == ticketData.ticket_from_stop_id && ticket_from_stop_seq_no == ticketData.ticket_from_stop_seq_no && ticket_till_stop_id == ticketData.ticket_till_stop_id && ticket_till_stop_seq_no == ticketData.ticket_till_stop_seq_no && Double.compare(ticketData.total_ticket_amount, total_ticket_amount) == 0 && Double.compare(ticketData.travelled_KM, travelled_KM) == 0 && Objects.equals(schedule_no, ticketData.schedule_no) && Objects.equals(route_no, ticketData.route_no) && Objects.equals(ticket_date, ticketData.ticket_date) && Objects.equals(ticket_time, ticketData.ticket_time);
     }
 
     @Override
